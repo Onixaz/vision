@@ -47,7 +47,7 @@ def _segm_resnet(name, backbone_name, num_classes, aux, pretrained_backbone=True
     }
 
     inplanes = 2048 / inplanes_scale_factor
-    classifier = model_map[name][0](inplanes, num_classes)
+    classifier = model_map[name][0](int(inplanes), int(num_classes))
     base_model = model_map[name][1]
 
     model = base_model(backbone, classifier, aux_classifier, export_onnx)
